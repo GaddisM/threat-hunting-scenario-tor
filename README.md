@@ -64,8 +64,8 @@ DeviceProcessEvents
 | project Timestamp, DeviceName, AccountName, ActionType, FileName, FolderPath, SHA256, ProcessCommandLine  
 | order by Timestamp desc
 ```
+<img width="1284" height="482" alt="Screenshot 2026-01-30 at 16 18 58" src="https://github.com/user-attachments/assets/365d997f-893e-4d3e-bde2-09c6528b19ac" />
 
-<img width="1212" alt="image" src="https://github.com/user-attachments/assets/b13707ae-8c2d-4081-a381-2b521d3a0d8f">
 
 ---
 
