@@ -71,7 +71,7 @@ DeviceProcessEvents
 
 ### 3. Searched the `DeviceNetworkEvents` Table for TOR Network Connections
 
-Searched for any indication the TOR browser was used to establish a connection using any of the known TOR ports. At `2024-11-08T22:18:01.1246358Z`, an employee on the "threat-hunt-lab" device successfully established a connection to the remote IP address `176.198.159.33` on port `9001`. The connection was initiated by the process `tor.exe`, located in the folder `c:\users\employee\desktop\tor browser\browser\torbrowser\tor\tor.exe`. There were a couple of other connections to sites over port `443`.
+Searched for any indication the TOR browser was used to establish a connection using any of the known TOR ports. At 2026-01-29T20:25:21.0842054Z, the workstation “gdsvm” showed the user “Gaddis” successfully establishing a network connection when the Tor executable tor.exe, launched from the Tor Browser folder on the desktop, reached out across the internet to the remote IP address 127.0.0.1 on port 9150. The connection was initiated by the process `tor.exe`, located in the folder `c:\users\gaddis\desktop\tor browser\browser\torbrowser\tor\tor.exe`. There were a couple of other connections to sites over port `443`.
 
 **Query used to locate events:**
 
@@ -83,8 +83,20 @@ DeviceNetworkEvents
 | where RemotePort in ("9001", "9030", "9040", "9050", "9051", "9150", "80", "443")  
 | project Timestamp, DeviceName, InitiatingProcessAccountName, ActionType, RemoteIP, RemotePort, RemoteUrl, InitiatingProcessFileName, InitiatingProcessFolderPath  
 | order by Timestamp desc
+
+
+DeviceNetworkEvents
+| where DeviceName == "gdsvm"
+| where InitiatingProcessAccountName != "system"
+| where InitiatingProcessFileName in ("tor.exe", "firefox.exe")
+| where RemotePort in ('9001', '9030', '9040', '9050', '9051', '9150', '80', '443')
+| project Timestamp, DeviceName, InitiatingProcessAccountName, ActionType, RemoteIP, RemotePort, InitiatingProcessFileName, InitiatingProcessFolderPath
+| order by Timestamp desc
 ```
 <img width="1212" alt="image" src="https://github.com/user-attachments/assets/87a02b5b-7d12-4f53-9255-f5e750d0e3cb">
+
+<img width="1202" height="472" alt="Screenshot 2026-01-30 at 16 34 14" src="https://github.com/user-attachments/assets/8e0de700-65aa-46ca-8185-b714aff5752a" />
+
 
 ---
 
