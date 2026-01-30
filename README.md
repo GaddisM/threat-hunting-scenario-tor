@@ -76,14 +76,6 @@ Searched for any indication the TOR browser was used to establish a connection u
 **Query used to locate events:**
 
 ```kql
-DeviceNetworkEvents  
-| where DeviceName == "threat-hunt-lab"  
-| where InitiatingProcessAccountName != "system"  
-| where InitiatingProcessFileName in ("tor.exe", "firefox.exe")  
-| where RemotePort in ("9001", "9030", "9040", "9050", "9051", "9150", "80", "443")  
-| project Timestamp, DeviceName, InitiatingProcessAccountName, ActionType, RemoteIP, RemotePort, RemoteUrl, InitiatingProcessFileName, InitiatingProcessFolderPath  
-| order by Timestamp desc
-
 
 DeviceNetworkEvents
 | where DeviceName == "gdsvm"
@@ -93,7 +85,6 @@ DeviceNetworkEvents
 | project Timestamp, DeviceName, InitiatingProcessAccountName, ActionType, RemoteIP, RemotePort, InitiatingProcessFileName, InitiatingProcessFolderPath
 | order by Timestamp desc
 ```
-<img width="1212" alt="image" src="https://github.com/user-attachments/assets/87a02b5b-7d12-4f53-9255-f5e750d0e3cb">
 
 <img width="1202" height="472" alt="Screenshot 2026-01-30 at 16 34 14" src="https://github.com/user-attachments/assets/8e0de700-65aa-46ca-8185-b714aff5752a" />
 
@@ -151,12 +142,16 @@ DeviceNetworkEvents
 
 ## Summary
 
-The user "employee" on the "threat-hunt-lab" device initiated and completed the installation of the TOR browser. They proceeded to launch the browser, establish connections within the TOR network, and created various files related to TOR on their desktop, including a file named `tor-shopping-list.txt`. This sequence of activities indicates that the user actively installed, configured, and used the TOR browser, likely for anonymous browsing purposes, with possible documentation in the form of the "shopping list" file.
+On January 29, 2026, the user “gaddis” on the workstation “gdsvm” downloaded and executed the Tor Browser portable installer. Following installation, Tor Browser files were extracted to the desktop, and the browser was actively launched. Process creation logs confirmed the execution of both firefox.exe (Tor Browser) and tor.exe.
+Network telemetry showed successful Tor network connectivity using known Tor ports, including port 9150, as well as encrypted outbound HTTPS connections consistent with Tor usage. The creation of a user-authored file named `tor-shopping-list.txt` indicates intentional and interactive use of Tor Browser rather than accidental execution.
+Overall, the evidence clearly demonstrates successful installation, launch, and active use of Tor Browser on the endpoint during the observed timeframe.
 
 ---
 
 ## Response Taken
 
-TOR usage was confirmed on the endpoint `threat-hunt-lab` by the user `gaddis`. The device was isolated, and the user's direct manager was notified.
+TOR usage was confirmed on the endpoint gdsvm by the user gaddis. 
+The device was isolated and the user's direct manager was notified.
+
 
 ---
