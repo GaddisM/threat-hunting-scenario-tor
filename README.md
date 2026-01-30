@@ -130,6 +130,7 @@ Overall, the evidence clearly demonstrates successful installation, launch, and 
 ## Response Taken
 
 TOR usage was confirmed on the endpoint gdsvm by the user gaddis. 
+
 The device was isolated and the user's direct manager was notified.
 
 
