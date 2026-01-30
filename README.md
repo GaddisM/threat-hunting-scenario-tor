@@ -122,7 +122,10 @@ DeviceNetworkEvents
 ## Summary
 
 On January 29, 2026, the user “gaddis” on the workstation “gdsvm” downloaded and executed the Tor Browser portable installer. Following installation, Tor Browser files were extracted to the desktop, and the browser was actively launched. Process creation logs confirmed the execution of both firefox.exe (Tor Browser) and tor.exe.
-Network telemetry showed successful Tor network connectivity using known Tor ports, including port 9150, as well as encrypted outbound HTTPS connections consistent with Tor usage. The creation of a user-authored file named `tor-shopping-list.txt` indicates intentional and interactive use of Tor Browser rather than accidental execution.
+
+Network telemetry showed successful Tor network connectivity using known Tor ports, including port 9150, as well as encrypted outbound HTTPS connections consistent with Tor usage. 
+The creation of a user-authored file named `tor-shopping-list.txt` indicates intentional and interactive use of Tor Browser rather than accidental execution.
+
 Overall, the evidence clearly demonstrates successful installation, launch, and active use of Tor Browser on the endpoint during the observed timeframe.
 
 ---
