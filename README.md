@@ -93,22 +93,27 @@ DeviceNetworkEvents
 ## Chronological Event Timeline 
 
 2026-01-29 20:50 UTC
+
  Tor-related file activity was first observed on the workstation “gdsvm” under the user “gaddis,” indicating the Tor Browser installer had been downloaded.
 
  
 ~20:24–20:25 UTC
+
  The user executed the Tor Browser portable installer from the Downloads folder, resulting in multiple Tor-related files being extracted to the desktop.
 
  
 20:24:52 UTC
+
  The user launched Tor Browser. Process logs confirmed firefox.exe (Tor) and tor.exe were spawned.
 
  
 20:25:21 UTC
+
  Tor successfully established a network connection via tor.exe using port 9150, consistent with Tor proxy behavior. Additional encrypted connections over port 443 followed.
 
  
 ~20:25–20:32 UTC
+
  User interaction continued, including the creation of a file named tor-shopping-list.txt on the desktop, confirming active use of Tor Browser.
 
 
